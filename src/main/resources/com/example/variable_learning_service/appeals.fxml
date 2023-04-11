@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.variable_learning_service.AppealsContrller">
+   <children>
+      <Label layoutX="202.0" layoutY="31.0" text="Написать обращение">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="name_child" layoutX="109.0" layoutY="105.0" promptText="Имя ребёнка" />
+      <TextField fx:id="surname_child" layoutX="109.0" layoutY="250.0" promptText="Фамилия ребёнка" />
+      <TextField fx:id="patronymic_child" layoutX="109.0" layoutY="175.0" promptText="Отчество ребёнка" />
+      <Button fx:id="sendAppeal" layoutX="109.0" layoutY="325.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Отправить обращение" />
+      <ComboBox fx:id="comdo_help" layoutX="371.0" layoutY="105.0" prefWidth="150.0" />
+      <TextArea layoutX="346.0" layoutY="210.0" prefHeight="140.0" prefWidth="200.0" promptText="Комментарий" />
+   </children>
+</AnchorPane>
