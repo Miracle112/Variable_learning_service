@@ -2,12 +2,26 @@ package com.example.variable_learning_service;
 
 import javafx.util.Pair;
 
+import java.io.Serializable;
 import java.sql.*;
+import java.util.List;
 
 public class DBHandler {
     Statement statement;
     Connection dbConnection;
     ResultSet res;
+
+    private static DBHandler dbHandler;
+
+    private DBHandler() {
+    }
+
+    public synchronized static DBHandler getInstance(){
+        if (dbHandler == null) {
+            dbHandler = new DBHandler();
+        }
+        return dbHandler;
+    }
 
     public Connection getDBConnection() throws ClassNotFoundException, SQLException{
         String connectionString = "jdbc:mysql://127.0.0.1:3306/variable_learning_service";
@@ -83,5 +97,29 @@ public class DBHandler {
             throwables.printStackTrace();
         }
         return res;
+    }
+
+    public Boolean checkFieldIsNull(List<? extends Serializable> text) {
+        Object s = text.stream().filter(t -> t == null || t.equals("")).findFirst().orElse(null);
+        return s != null;
+    }
+
+    public void saveParentData(List<? extends Serializable> fuk) {
+        String insert = "INSERT INTO parents_data(id_user, address, id_garden, short_name, name_child, surname_child, " +
+                "patronymic_child, short_name_child) VALUES(?,?,?,?,?,?,?,?)";
+        try {
+
+            PreparedStatement peSt = getDBConnection().prepareStatement(insert);
+            fuk.forEach(f -> {
+                try {
+                    peSt.setString(fuk.indexOf(f) + 1, f.toString());
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            });
+            peSt.executeUpdate();
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
     }
 }

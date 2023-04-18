@@ -38,11 +38,11 @@ public class AppealsContrller {
 
     @FXML
     void initialize() {
-        DBHandler dbHandler = new DBHandler();
+        DBHandler dbHandler = DBHandler.getInstance();
 
         sendAppeal.setOnAction(event -> {
             // запрос на создание обращения в бд
-            open("/com/example/variable_learning_service/client.fxml", sendAppeal, "Личный кабинет");
+            Main.open("/com/example/variable_learning_service/client.fxml", sendAppeal, "Личный кабинет");
         });
 
 
@@ -50,20 +50,5 @@ public class AppealsContrller {
 
     }
 
-    private void open(String path, Button button, String title) {
-        button.getScene().getWindow().hide();
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(path));
-        try {
-            loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Parent root = loader.getRoot();
-        Stage stage = new Stage();
-        stage.setScene((new Scene(root)));
-        stage.setTitle(title);
-        stage.show();
-    }
 
 }

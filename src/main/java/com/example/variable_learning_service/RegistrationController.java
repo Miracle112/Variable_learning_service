@@ -35,10 +35,10 @@ public class RegistrationController {
 
     @FXML
     void initialize() {
-        DBHandler dbHandler = new DBHandler();
+        DBHandler dbHandler = DBHandler.getInstance();
 
         back.setOnAction(event -> {
-            open("/com/example/variable_learning_service/authorization.fxml", back, "Авторизация");
+            Main.open("/com/example/variable_learning_service/authorization.fxml", back, "Авторизация");
         });
 
         reg_button.setOnAction(event -> {
@@ -46,7 +46,7 @@ public class RegistrationController {
                     !name.getText().equals("") && !patronymic.getText().equals("")) {
                 int id_role = 4;
                 dbHandler.registration(name.getText(), surname.getText(), patronymic.getText(), id_role, login.getText(), password.getText());
-                open("/com/example/variable_learning_service/authorization.fxml", reg_button, "Авторизация");
+                Main.open("/com/example/variable_learning_service/authorization.fxml", reg_button, "Авторизация");
             } else {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Предупреждение");
@@ -56,19 +56,4 @@ public class RegistrationController {
         });
     }
 
-    private void open(String path, Button button, String title) {
-        button.getScene().getWindow().hide();
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(path));
-        try {
-            loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Parent root = loader.getRoot();
-        Stage stage = new Stage();
-        stage.setScene((new Scene(root)));
-        stage.setTitle(title);
-        stage.show();
-    }
 }

@@ -37,23 +37,8 @@ public class infoKindergartenController {
     void initialize() {
 
         back.setOnAction(event -> {
-            open("/com/example/variable_learning_service/client.fxml", back, "Личный кабинет");
+            Main.open("/com/example/variable_learning_service/client.fxml", back, "Личный кабинет");
         });
     }
 
-    private void open(String path, Button button, String title) {
-        button.getScene().getWindow().hide();
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(path));
-        try {
-            loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Parent root = loader.getRoot();
-        Stage stage = new Stage();
-        stage.setScene((new Scene(root)));
-        stage.setTitle(title);
-        stage.show();
-    }
 }

@@ -12,6 +12,7 @@ import java.io.IOException;
 
 
 public class AuthorizationController {
+    static int id;
 
     @FXML
     private TextField email;
@@ -27,7 +28,7 @@ public class AuthorizationController {
 
     @FXML
     void initialize() {
-        DBHandler dbHandler = new DBHandler();
+        DBHandler dbHandler = DBHandler.getInstance();
 
 
 
@@ -38,18 +39,18 @@ public class AuthorizationController {
                 if (!emailText.equals("") && !passwordText.equals("")) {
                     Pair<Integer, String> user = dbHandler.getRole(emailText, passwordText);
                     String str = user.getValue();
-                    Integer id = user.getKey();
+                    id = user.getKey();
                     if (str.equals("1")) {
-                        open("/com/example/variable_learning_service/admin.fxml", login, "Администратор");
+                        Main.open("/com/example/variable_learning_service/admin.fxml", login, "Администратор");
                     } else if (str.equals("2")) {
-                        open("/com/example/variable_learning_service/client.fxml", login, "Заведующий");
+                        Main.open("/com/example/variable_learning_service/client.fxml", login, "Заведующий");
                     } else if (str.equals("3")) {
-                        open("/com/example/variable_learning_service/client.fxml", login, "Специалист");
+                        Main.open("/com/example/variable_learning_service/client.fxml", login, "Специалист");
                     } else if (str.equals("4")) {
-                        if (dbHandler.checkParentDataIsNotNull(id)) {
-                            open("/com/example/variable_learning_service/client.fxml", login, "Личный кабинет");
+                        if (!dbHandler.checkParentDataIsNotNull(id)) {
+                            Main.open("/com/example/variable_learning_service/parents_data.fxml", login, "Дополнительные данные");
                         } else {
-                            open("/com/example/variable_learning_service/parents_data.fxml", login, "Дополнительные данные");
+                            Main.open("/com/example/variable_learning_service/client.fxml", login, "Личный кабинет");
                         }
                     }
                 }
@@ -72,29 +73,13 @@ public class AuthorizationController {
                 alert.showAndWait();
             }
         } catch (Exception e) {
+                e.printStackTrace();
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Предупреждение");
                 alert.setContentText("Неправильный логин или пароль");
                 alert.showAndWait();
             }});
-        registration.setOnAction(actionEvent -> open("/com/example/variable_learning_service/registration.fxml",
+        registration.setOnAction(actionEvent -> Main.open("/com/example/variable_learning_service/registration.fxml",
                 registration, "Регистрация"));
-    }
-
-    private void open(String path, Button button, String title) {
-        button.getScene().getWindow().hide();
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(path));
-        try {
-            loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Parent root = loader.getRoot();
-        Stage stage = new Stage();
-        stage.setScene((new Scene(root)));
-        stage.setTitle(title);
-        stage.setResizable(false);
-        stage.show();
     }
 }
