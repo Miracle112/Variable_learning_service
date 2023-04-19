@@ -1,25 +1,18 @@
 package com.example.variable_learning_service;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.stage.Stage;
-import javafx.util.Callback;
 
-import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ClientController {
+    int userId = AuthorizationController.id;
+    String name;
+    String surname;
 
     @FXML
     private Button appealsBtn;
@@ -38,13 +31,22 @@ public class ClientController {
 
     @FXML
     void initialize() {
-        DBHandler dbHandler = DBHandler.getInstance();
+        System.out.println(userId);
 
+        DBHandler dbHandler = DBHandler.getInstance();
+        ResultSet resultSet = dbHandler.querry("SELECT name, surname FROM users WHERE id_users = '" + userId + "';");
+        try {
+            resultSet.next();
+            name = resultSet.getString("name");
+            surname = resultSet.getString("surname");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        nameLbl.setText("Здравствуйте " + name + " " + surname);
         back.setOnAction(event -> {
             Main.open("/com/example/variable_learning_service/authorization.fxml", back, "Авторизация");
         });
 
-        nameLbl.setText("Здравуствуйте Макисм Китанин");
         infoKindergarten.setOnAction(event -> {
             Main.open("/com/example/variable_learning_service/infoKindergarten.fxml", infoKindergarten, "Информация о садике");
         });

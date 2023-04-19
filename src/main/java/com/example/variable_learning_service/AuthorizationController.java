@@ -30,8 +30,6 @@ public class AuthorizationController {
     void initialize() {
         DBHandler dbHandler = DBHandler.getInstance();
 
-
-
         login.setOnAction(actionEvent -> {
             String emailText = email.getText().trim();
             String passwordText = password.getText().trim();
@@ -69,7 +67,7 @@ public class AuthorizationController {
             else{
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Предупреждение");
-                alert.setContentText("Данные не введены");
+                alert.setContentText("Неправильный логин или пароль");
                 alert.showAndWait();
             }
         } catch (Exception e) {
