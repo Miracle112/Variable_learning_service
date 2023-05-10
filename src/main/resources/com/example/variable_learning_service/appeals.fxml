@@ -5,21 +5,28 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.variable_learning_service.AppealsContrller">
+<AnchorPane prefHeight="337.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.variable_learning_service.AppealsContrller">
    <children>
-      <Label layoutX="202.0" layoutY="31.0" text="Написать обращение">
+      <ImageView fitHeight="400.0" fitWidth="600.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../image/background_client.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="201.0" layoutY="26.0" text="Написать обращение">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="name_child" layoutX="109.0" layoutY="105.0" promptText="Имя ребёнка" />
-      <TextField fx:id="surname_child" layoutX="109.0" layoutY="250.0" promptText="Фамилия ребёнка" />
-      <TextField fx:id="patronymic_child" layoutX="109.0" layoutY="175.0" promptText="Отчество ребёнка" />
-      <Button fx:id="sendAppeal" layoutX="109.0" layoutY="325.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Отправить обращение" />
-      <ComboBox fx:id="comdo_help" layoutX="371.0" layoutY="105.0" prefWidth="150.0" />
-      <TextArea layoutX="346.0" layoutY="210.0" prefHeight="140.0" prefWidth="200.0" promptText="Комментарий" />
+      <TextField fx:id="FIO_child" layoutX="109.0" layoutY="80.0" promptText="ФИО" />
+      <TextField fx:id="time" layoutX="109.0" layoutY="213.0" promptText="Желаемое время" />
+      <TextField fx:id="date" layoutX="109.0" layoutY="143.0" promptText="Желаемая дата" />
+      <Button fx:id="sendAppeal" layoutX="109.0" layoutY="283.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Отправить обращение" />
+      <ComboBox fx:id="kind_of_help" layoutX="371.0" layoutY="80.0" prefWidth="150.0" />
+      <TextArea fx:id="comment" layoutX="346.0" layoutY="143.0" prefHeight="140.0" prefWidth="200.0" promptText="Комментарий" />
    </children>
 </AnchorPane>

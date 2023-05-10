@@ -44,7 +44,6 @@ public class ParentsDataController {
 
     @FXML
     void initialize() {
-        System.out.println(userId);
 
         setBox("SELECT DISTINCT name FROM gardens", "name", garden);
         garden.setOnAction(event -> {
@@ -63,8 +62,6 @@ public class ParentsDataController {
                     surname_child.getText(), patronymic_child.getText(), short_name_child.getText());
             if(!dbHandler.checkFieldIsNull(listData)) {
                 dbHandler.saveParentData(listData);
-//                dbHandler.saveParentData(address.getText(), gardenId, short_name.getText(), name_child.getText(),
-//                        surname_child.getText(), patronymic_child.getText(), short_name_child.getText());
             } else {
                 System.out.println("Пустые");
             }

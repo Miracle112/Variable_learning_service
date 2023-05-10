@@ -31,7 +31,6 @@ public class ClientController {
 
     @FXML
     void initialize() {
-        System.out.println(userId);
 
         DBHandler dbHandler = DBHandler.getInstance();
         ResultSet resultSet = dbHandler.querry("SELECT name, surname FROM users WHERE id_users = '" + userId + "';");
@@ -55,7 +54,7 @@ public class ClientController {
             Main.open("/com/example/variable_learning_service/appeals.fxml", appealsBtn, "Написать обращение");
         });
 
-        String requestAdmin = "SELECT * FROM variable_learning_service.appeals";
+        String requestAdmin = "SELECT * FROM variable_learning_service.appeals WHERE id_user = '" + userId + "';";
         try {
             Main.fill(requestAdmin, approvedAppealsTable);
         } catch (SQLException throwables) {

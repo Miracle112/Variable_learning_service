@@ -70,24 +70,23 @@ public class DBHandler {
         }
     }
 
-//    public void send_appeals(Integer id_user,String name_child, String surname_child, String patronymic_child, Integer id_role, String login, String password) {
-//        String insert = "INSERT INTO users(name, surname, patronymic, id_role, login, password)"
-//                + " VALUES(?,?,?,?,?,?)";
-//        try {
-//            PreparedStatement peSt = getDBConnection().prepareStatement(insert);
-//            peSt.setString(1, name);
-//            peSt.setString(2, surname);
-//            peSt.setString(3, patronymic);
-//            peSt.setInt(4, id_role);
-//            peSt.setString(5, login);
-//            peSt.setString(6, password);
-//            peSt.executeUpdate();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        } catch (ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//    }
+    public void sendAppeals(Integer id_user, String kind_of_help, String date, String time, String comment) {
+        String insert = "INSERT INTO appeals(id_user, kind_of_help, date, time, comment)"
+                + " VALUES(?,?,?,?,?)";
+        try {
+            PreparedStatement peSt = getDBConnection().prepareStatement(insert);
+            peSt.setInt(1, id_user);
+            peSt.setString(2, kind_of_help);
+            peSt.setString(3, date);
+            peSt.setString(4, time);
+            peSt.setString(5, comment);
+            peSt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
     public ResultSet querry(String querry) {
         try{
