@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="337.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.variable_learning_service.AppealsContrller">
+<AnchorPane prefHeight="337.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.variable_learning_service.AppealsController">
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -27,6 +27,7 @@
       <TextField fx:id="date" layoutX="109.0" layoutY="143.0" promptText="Желаемая дата" />
       <Button fx:id="sendAppeal" layoutX="109.0" layoutY="283.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Отправить обращение" />
       <ComboBox fx:id="kind_of_help" layoutX="371.0" layoutY="80.0" prefWidth="150.0" />
-      <TextArea fx:id="comment" layoutX="346.0" layoutY="143.0" prefHeight="140.0" prefWidth="200.0" promptText="Комментарий" />
+      <Button fx:id="backBtn" layoutX="372.0" layoutY="283.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Назад" />
+      <TextArea fx:id="comment" layoutX="346.0" layoutY="129.0" prefHeight="136.0" prefWidth="200.0" promptText="Комментарий" />
    </children>
 </AnchorPane>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="337.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.variable_learning_service.AddUsersController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../image/background_client.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="backBtn" layoutX="478.0" layoutY="286.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="80.0" text="Назад" />
+      <Button fx:id="addBtn" layoutX="260.0" layoutY="273.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="80.0" text="Добавить" />
+      <TextField fx:id="name" layoutX="101.0" layoutY="83.0" promptText="Имя" />
+      <Text layoutX="182.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Добавить пользователя">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <TextField fx:id="surname" layoutX="101.0" layoutY="150.0" promptText="Фамилия" />
+      <TextField fx:id="patronymic" layoutX="101.0" layoutY="213.0" promptText="Отчество" />
+      <TextField fx:id="login" layoutX="369.0" layoutY="150.0" promptText="Логин" />
+      <TextField fx:id="password" layoutX="369.0" layoutY="213.0" promptText="Пароль" />
+      <ComboBox fx:id="id_role" layoutX="368.0" layoutY="83.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>

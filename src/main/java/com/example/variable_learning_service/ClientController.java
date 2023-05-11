@@ -47,14 +47,15 @@ public class ClientController {
         });
 
         infoKindergarten.setOnAction(event -> {
-            Main.open("/com/example/variable_learning_service/infoKindergarten.fxml", infoKindergarten, "Информация о садике");
+            Main.open("/com/example/variable_learning_service/info_kindergarten.fxml", infoKindergarten, "Информация о садике");
         });
 
         appealsBtn.setOnAction(event -> {
             Main.open("/com/example/variable_learning_service/appeals.fxml", appealsBtn, "Написать обращение");
         });
 
-        String requestAdmin = "SELECT * FROM variable_learning_service.appeals WHERE id_user = '" + userId + "';";
+        String requestAdmin = "SELECT kind_of_help as 'Вид помощи', date as 'Дата', time as 'Время', comment as 'Коментарий'," +
+                " status as 'Статус' FROM variable_learning_service.appeals WHERE id_user = '" + userId + "';";
         try {
             Main.fill(requestAdmin, approvedAppealsTable);
         } catch (SQLException throwables) {

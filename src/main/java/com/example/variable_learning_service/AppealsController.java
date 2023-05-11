@@ -12,12 +12,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class AppealsContrller {
+public class AppealsController {
     DBHandler dbHandler = DBHandler.getInstance();
     String FIOChildGarden;
 
     @FXML
     private TextField FIO_child;
+
+    @FXML
+    private Button backBtn;
 
     @FXML
     private TextArea comment;
@@ -46,6 +49,10 @@ public class AppealsContrller {
             e.printStackTrace();
         }
         FIO_child.setText(FIOChildGarden);
+
+        backBtn.setOnAction(event -> {
+            Main.open("/com/example/variable_learning_service/client.fxml", backBtn, "Личный кабинет");
+        });
 
         ObservableList<String> kindOfHelpList = FXCollections.observableArrayList("Психологическая", "Логопедическая",
                 "Консультационная", "Медецинская", "Педогогическая", "Методическая", "Диагностическая", "Лекотека");
