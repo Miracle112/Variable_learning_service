@@ -43,7 +43,7 @@ public class AuthorizationController {
                     } else if (str.equals("2")) {
                         Main.open("/com/example/variable_learning_service/client.fxml", login, "Заведующий");
                     } else if (str.equals("3")) {
-                        Main.open("/com/example/variable_learning_service/client.fxml", login, "Специалист");
+                        Main.open("/com/example/variable_learning_service/specialist.fxml", login, "Специалист");
                     } else if (str.equals("4")) {
                         if (!dbHandler.checkParentDataIsNotNull(id)) {
                             Main.open("/com/example/variable_learning_service/parents_data.fxml", login, "Дополнительные данные");

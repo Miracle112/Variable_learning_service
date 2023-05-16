@@ -17,9 +17,7 @@ public class DBHandler {
     }
 
     public synchronized static DBHandler getInstance(){
-        if (dbHandler == null) {
-            dbHandler = new DBHandler();
-        }
+        if (dbHandler == null) {dbHandler = new DBHandler();}
         return dbHandler;
     }
 
@@ -50,6 +48,19 @@ public class DBHandler {
             return res.next();
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public void closeAppeals(String close, int id_spec, int id_appeals){
+        String update = "UPDATE appeals SET status = ? WHERE id_specialist = ? AND id_appeals = ?";
+        try {
+            PreparedStatement peSt = getDBConnection().prepareStatement(update);
+            peSt.setString(1, close);
+            peSt.setInt(2, id_spec);
+            peSt.setInt(3, id_appeals);
+            peSt.executeUpdate();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
         }
     }
 
