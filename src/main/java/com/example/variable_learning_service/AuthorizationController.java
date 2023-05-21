@@ -41,7 +41,7 @@ public class AuthorizationController {
                     if (str.equals("1")) {
                         Main.open("/com/example/variable_learning_service/admin.fxml", login, "Администратор");
                     } else if (str.equals("2")) {
-                        Main.open("/com/example/variable_learning_service/client.fxml", login, "Заведующий");
+                        Main.open("/com/example/variable_learning_service/manager.fxml", login, "Заведующий");
                     } else if (str.equals("3")) {
                         Main.open("/com/example/variable_learning_service/specialist.fxml", login, "Специалист");
                     } else if (str.equals("4")) {

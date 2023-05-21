@@ -65,8 +65,7 @@ public class DBHandler {
     }
 
     public void registration(String name, String surname, String patronymic, Integer id_role, String login, String password) {
-        String insert = "INSERT INTO users(name, surname, patronymic, id_role, login, password)"
-                + " VALUES(?,?,?,?,?,?)";
+        String insert = "INSERT INTO users(name, surname, patronymic, id_role, login, password) VALUES(?,?,?,?,?,?)";
         try {
             PreparedStatement peSt = getDBConnection().prepareStatement(insert);
             peSt.setString(1, name);
@@ -82,8 +81,7 @@ public class DBHandler {
     }
 
     public void sendAppeals(Integer id_user, String kind_of_help, String date, String time, String comment) {
-        String insert = "INSERT INTO appeals(id_user, kind_of_help, date, time, comment)"
-                + " VALUES(?,?,?,?,?)";
+        String insert = "INSERT INTO appeals(id_user, kind_of_help, date, time, comment) VALUES(?,?,?,?,?)";
         try {
             PreparedStatement peSt = getDBConnection().prepareStatement(insert);
             peSt.setInt(1, id_user);
