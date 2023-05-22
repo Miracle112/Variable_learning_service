@@ -30,9 +30,6 @@ public class AppealProcessingController {
     private TextField time;
 
     @FXML
-    private TextField user;
-
-    @FXML
     private Text textNum;
 
     @FXML

@@ -116,7 +116,6 @@ public class DBHandler {
         String insert = "INSERT INTO parents_data(id_user, address, id_garden, short_name, name_child, surname_child, " +
                 "patronymic_child, short_name_child) VALUES(?,?,?,?,?,?,?,?)";
         try {
-
             PreparedStatement peSt = getDBConnection().prepareStatement(insert);
             fuk.forEach(f -> {
                 try {

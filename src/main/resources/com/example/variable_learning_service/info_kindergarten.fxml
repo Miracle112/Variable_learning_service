@@ -16,7 +16,7 @@
          </image>
       </ImageView>
       <Button fx:id="back" layoutX="491.0" layoutY="313.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" text="Назад" />
-      <Label fx:id="nameKindergarten" layoutX="193.0" layoutY="40.0" text="Детский сад Солнышко">
+      <Label fx:id="nameKindergarten" layoutX="191.0" layoutY="39.0" text="Детский сад Название">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>

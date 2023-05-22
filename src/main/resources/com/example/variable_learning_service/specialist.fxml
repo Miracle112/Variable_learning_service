@@ -14,8 +14,8 @@
          </image>
       </ImageView>
       <TableView fx:id="appealsTable" prefHeight="314.0" prefWidth="600.0" />
-      <Button fx:id="closeBtn" layoutX="143.0" layoutY="347.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Закрыть" />
-      <Button fx:id="cancelBtn" layoutX="300.0" layoutY="347.0" mnemonicParsing="false" text="Отменить" />
-      <Button fx:id="extBtn" layoutX="510.0" layoutY="347.0" mnemonicParsing="false" text="Выход" />
+      <Button fx:id="closeBtn" layoutX="188.0" layoutY="348.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="86.0" text="Закрыть" />
+      <Button fx:id="cancelBtn" layoutX="342.0" layoutY="348.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="86.0" text="Отменить" />
+      <Button fx:id="extBtn" layoutX="522.0" layoutY="360.0" mnemonicParsing="false" text="Выход" />
    </children>
 </AnchorPane>
